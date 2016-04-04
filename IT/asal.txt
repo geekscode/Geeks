@@ -1,0 +1,112 @@
+<div class="span8">
+					<body Onload="document.edit.namamenu.focus();">
+						<div class="alert alert-success">
+						  <button type="button" class="close" data-dismiss="alert">&times;</button>
+						  <strong>Perhatian!</strong> <br>Apabila Aktif = Y dan Admin Menu = N, maka Menu Utama akan ditampilkan di halaman pengunjung. <br> Apabila Aktif = N dan Admin Menu = Y, maka Menu Utama akan ditampilkan di halaman administrator. 
+						</div>
+						<form action="<?php echo "$aksi?module=menuutama&act=update"; ?>" class='form-horizontal span8 offset2 well' name="edit" method="POST" id="MenuUtama">
+							<input type="hidden" name="idutama" value="<?= $data[idutama] ?>">
+							<table class="span12">
+								<tr>
+									<td>
+										<div class="control-group">
+											<label for="id" class="control-label">ID Menu Utama</label>
+											<div class="controls">
+												<input type="text" name="idutama" id="idutama" value="<?=$data[idutama]?>" disabled>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="control-group">
+											<label for="namamenu" class="control-label">Nama Menu</label>
+											<div class="controls">
+												<input type="text" name="namamenu" id="namamenu" value="<?= $data[namamenu] ?>">
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="control-group">
+											<label for="link" class="control-label">Link</label>
+											<div class="controls">
+												<input type="text" name="link" id="link" value="<?= $data[link] ?>">
+											</div>
+										</div>
+									</td>
+								</tr>
+								<?php
+									if ($data[aktif]=='Y') {
+								
+								?>
+								<tr>
+									<td>
+										<div class="control-group">
+											<label for="aktif" class="control-label">Aktif</label>										
+											<div class="controls">
+												<?php echo "<input type='radio' name='aktif' value='Y' checked> Y <input type='radio' name='aktif' value='N'> N"; ?>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<?php
+									}else{
+								?>
+								<tr>
+									<td>
+										<div class="control-group">
+											<label for="aktif" class="control-label">Aktif</label>										
+											<div class="controls">
+												<?php echo "<input type='radio' name='aktif' value='Y'> Y <input type='radio' name='aktif' value='N' checked> N"; ?>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<?php
+									}
+
+									if ($data[adminmenu]=='Y') {
+								?>
+								<tr>
+									<td>
+										<div class="control-group">
+											<label for="admin" class="control-label">Tampil Diadmin Menu</label>
+											<div class="controls">
+												<?php echo "<input type='radio' name='admin' value='Y' checked> Y <input type='radio' name='admin' value='N'> N"; ?>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<?php
+									}else{
+								?>
+								<tr>
+									<td>
+										<div class="control-group">
+											<label for="admin" class="control-label">Tampil Diadmin Menu</label>
+											<div class="controls">
+												<?php echo "<input type='radio' name='admin' value='Y'> Y <input type='radio' name='admin' value='N' checked> N"; ?>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<?php
+									}
+								?>								
+								
+								<tr>
+									<td>
+										<div class="control-group">												
+											<div class="controls">
+												<button type="submit" class="btn btn-primary" name="submit"><i class="icon-plus-sign icon-white"></i> Update</button> <button type="reset" class="btn btn-primary" onclick="self.history.back()"><i class="icon-remove icon-white"></i> Batal</button>														
+											</div>
+										</div>
+									</td>
+								</tr>	 							
+							</table>							
+						</form>						
+					</body>					
+				</div>
+			</div>
